@@ -1,6 +1,6 @@
 # HotelmanagementUI
 
-This project is a demo UI paired with the hotelmanagement java spring backend.
+This project is a demo UI paired with [Hotelmanagement](https://github.com/Blodynight/hotelmanagement).
 
 ## Development server
 
