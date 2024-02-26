@@ -1,0 +1,21 @@
+<h2>Create Room</h2>
+<form [formGroup]="roomForm" (ngSubmit)="onSubmit(roomForm.value.roomNumber, roomForm.value.roomSize, roomForm.value.minibar)">
+  <div>
+    <label for="roomNumber">Room Number:</label>
+    <input type="number" id="roomNumber" formControlName="roomNumber">
+  </div>
+  
+  <div>
+    <label for="roomSize">Room Size:</label>
+    <select id="roomSize" formControlName="roomSize">
+      <option *ngFor="let size of roomSizes" [value]="size">{{ size }}</option>
+    </select>
+  </div>
+
+  <div>
+    <input type="checkbox" id="minibar" formControlName="minibar">
+    <label for="minibar">Minibar</label>
+  </div>
+
+  <button type="submit" [disabled]="roomForm.invalid">Submit</button>
+</form>

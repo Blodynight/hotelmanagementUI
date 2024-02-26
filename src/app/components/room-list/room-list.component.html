@@ -1,0 +1,21 @@
+<div>
+    <h2>Rooms</h2>
+    <table>
+        <thead>
+          <tr>
+            <th>Room Number</th>
+            <th>Size</th>
+            <th>Minibar</th>
+            <!-- Add more headers as needed -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let room of rooms">
+            <td style="text-align: center">{{ room.roomNumber }}</td>
+            <td>{{ room.size }}</td>
+            <td style="text-align: center">{{ room.minibar }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button routerLink="/room-form" routerLinkActive="active" ariaCurrentWhenActive="page">Create Room</button>
+</div>
