@@ -1,6 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Room } from '../../types/room';
 
+/*
+This Pipe is used in the room-list component to filter the list by unbooked rooms
+*/
 @Pipe({
   name: 'tableFilter',
   standalone: true

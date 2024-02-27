@@ -4,6 +4,9 @@ import { Room } from '../../types/room';
 import { RoomService } from '../../services/room.service';
 import { NgIf } from '@angular/common';
 
+/*
+Component that shows the room details depending on what room number is used in the route path
+*/
 @Component({
   selector: 'app-room',
   standalone: true,

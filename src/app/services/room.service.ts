@@ -4,6 +4,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, catchError } from 'rxjs';
 import { RoomSize } from '../enums/roomSize';
 
+/*
+Service that manages the api calls for the rooms
+*/
 @Injectable({
   providedIn: 'root'
 })

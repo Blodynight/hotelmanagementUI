@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RoomService } from '../../services/room.service';
 import { NgFor } from '@angular/common';
 import { RoomSize } from '../../enums/roomSize';
 import { Room } from '../../types/room';
 import { Router } from '@angular/router';
 
+/*
+Component for the form to create a room, booked variable is implicit false for now
+*/
 @Component({
   selector: 'app-room-form',
   standalone: true,

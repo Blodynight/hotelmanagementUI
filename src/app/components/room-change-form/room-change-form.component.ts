@@ -6,6 +6,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { RoomSize } from '../../enums/roomSize';
 import { NgFor } from '@angular/common';
 
+/*
+This component is the child component of room-details and is mainly a Form to change one or multiple things about a room, except the room number
+TODO: 
+-Set the option value of the room size select to the corresponding room size of the selected room on init
+-Tests
+*/
 @Component({
   selector: 'app-room-change-form',
   standalone: true,
@@ -24,6 +30,7 @@ export class RoomChangeFormComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    //TODO: Check if this reroute is necessary, parent may be killed after a reload making the room number dissappear
     if(this.route.parent == null){
       this.router.navigate(['rooms']);
       return;
@@ -31,7 +38,6 @@ export class RoomChangeFormComponent implements OnInit{
 
     this.route.parent.params.subscribe(params => {
       this.roomNumber = params['roomNumber'];
-      console.log(params['roomNumber'])
     });
 
     if(this.roomNumber === undefined) {
@@ -42,7 +48,6 @@ export class RoomChangeFormComponent implements OnInit{
       this.roomChangeForm.get('minibar')?.setValue(room.minibar);
       this.roomChangeForm.get('booked')?.setValue(room.booked);
       this.roomChangeForm.get('roomSize')?.setValue(room.size);
-      console.log(this.roomChangeForm.get('roomSize'));
     });
   }
 

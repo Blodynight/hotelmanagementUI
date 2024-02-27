@@ -1,11 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Room } from '../../types/room';
 import { RoomService } from '../../services/room.service';
-import { CommonModule, NgFor } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive, Router} from '@angular/router';
 import { TableFilterPipe } from '../../shared/pipes/table-filter.pipe';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 
+/*
+Component that displays all rooms in a list and can be filtered so it shows only unbooked rooms
+*/
 @Component({
   selector: 'app-room-list',
   standalone: true,
