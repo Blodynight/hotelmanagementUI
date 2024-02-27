@@ -1,0 +1,25 @@
+<h2>Change Room</h2>
+<form [formGroup]="roomChangeForm" (ngSubmit)="onSubmit(roomChangeForm.value.roomSize, roomChangeForm.value.minibar, roomChangeForm.value.booked)">
+  <div>
+    <label>Room Number {{selectedRoom?.roomNumber}}</label>
+  </div>
+  
+  <div>
+    <label for="roomSize">Room Size:</label>
+    <select id="roomSize" formControlName="roomSize">
+        <option *ngFor="let size of roomSizes" [value]="size">{{size}}</option>
+    </select>
+  </div>
+
+  <div>
+    <input type="checkbox" id="minibar" formControlName="minibar">
+    <label for="minibar">Minibar</label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="booked" formControlName="booked">
+    <label for="booked">Booked</label>
+  </div>
+
+  <button type="submit" [disabled]="roomChangeForm.invalid">Submit</button>
+</form>

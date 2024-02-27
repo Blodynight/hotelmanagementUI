@@ -1,6 +1,11 @@
-<h1>Angular Router App</h1>
+<h1  routerLink="/">Hotelmanagement "eXXellent Nights!"</h1>
+
 <nav id="navigation" style="margin-bottom: 50px;">
-  <button routerLink="/rooms" routerLinkActive="active" ariaCurrentWhenActive="page">Rooms</button>
+  <button routerLink="/room-list" routerLinkActive="active" ariaCurrentWhenActive="page">Room List</button>
+  <span>
+    <input type="number" id="roomNumber" [(ngModel)]="inputRoomNumber" style="margin-left: 10%;" size="5%">
+    <button (click)="searchRoom($event)" style="margin-left: 5px;">Search Room</button>
+  </span>
 </nav>
 
 <router-outlet></router-outlet>

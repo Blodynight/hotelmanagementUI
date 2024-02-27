@@ -4,4 +4,5 @@ export interface Room {
     roomNumber: number;
     size: RoomSize;
     minibar: boolean;
+    booked: boolean;
 }

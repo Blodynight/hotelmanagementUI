@@ -1,21 +1,24 @@
 <div>
-    <h2>Rooms</h2>
-    <table>
-        <thead>
-          <tr>
-            <th>Room Number</th>
-            <th>Size</th>
-            <th>Minibar</th>
-            <!-- Add more headers as needed -->
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let room of rooms">
-            <td style="text-align: center">{{ room.roomNumber }}</td>
-            <td>{{ room.size }}</td>
-            <td style="text-align: center">{{ room.minibar }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <button routerLink="/room-form" routerLinkActive="active" ariaCurrentWhenActive="page">Create Room</button>
+  <h2>Rooms</h2> 
+  <label for="filterByBooked">Filter By Unbooked</label>
+  <input type="checkbox" id="filterByBooked" [(ngModel)]="filterByUnbooked">
+  <table>
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Size</th>
+        <th>Minibar</th>
+        <th>Booked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let room of rooms | tableFilter : filterByUnbooked" (click)="onClick(room.roomNumber)">
+        <td style="text-align: center">{{ room.roomNumber }}</td>
+        <td style="text-align: center">{{ room.size }}</td>
+        <td style="text-align: center">{{ room.minibar }}</td>
+        <td style="text-align: center">{{ room.booked }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button routerLink="/room-form" routerLinkActive="active" ariaCurrentWhenActive="page">Create Room</button>
 </div>

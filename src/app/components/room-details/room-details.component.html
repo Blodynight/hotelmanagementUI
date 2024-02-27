@@ -1,0 +1,13 @@
+<div *ngIf="route.children.length === 0">
+    <h2>Room Details</h2>
+    <ul>
+        <li>Number: {{ selectedRoom?.roomNumber }}</li>
+        <li>Size: {{ selectedRoom?.size }}</li>
+        <li>Minibar: {{ selectedRoom?.minibar }}</li>
+        <li>Booked: {{ selectedRoom?.booked }}</li>
+    </ul>
+    <button routerLink="room-change-form">Change Room</button>
+    <button (click)="deleteRoom()">Delete Room</button>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,5 +1,5 @@
 export enum RoomSize {
-    EINZELZIMMER = "Einzelzimmer",
-    DOPPELZIMMER = "Doppelzimmer",
-    SUITE = "Suite"
+    Einzelzimmer = "Einzelzimmer",
+    Doppelzimmer = "Doppelzimmer",
+    Suite = "Suite"
 }

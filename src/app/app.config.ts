@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HTTPInterceptor } from './interceptor/http.interceptor';
+import { TableFilterPipe } from './shared/pipes/table-filter.pipe';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +16,7 @@ export const appConfig: ApplicationConfig = {
       provide: HTTP_INTERCEPTORS,
       useClass: HTTPInterceptor,
       multi: true
-    }
+    },
+    TableFilterPipe
   ]
 };

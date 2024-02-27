@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RoomService } from '../../services/room.service';
 import { NgFor } from '@angular/common';
 import { RoomSize } from '../../enums/roomSize';
@@ -10,32 +10,32 @@ import { Router } from '@angular/router';
   selector: 'app-room-form',
   standalone: true,
   imports: [NgFor, ReactiveFormsModule],
-  templateUrl: './room-form.component.html',
-  styleUrl: './room-form.component.css'
+  templateUrl: './room-create-form.component.html',
+  styleUrl: './room-create-form.component.css'
 })
-export class RoomFormComponent {
-  roomForm: FormGroup;
+export class RoomCreateFormComponent {
+  roomCreateForm: FormGroup;
   roomSizes = Object.values(RoomSize);
 
   constructor(private formBuilder: FormBuilder, private roomService: RoomService, private router: Router){
-    this.roomForm = this.createRoomForm();
+    this.roomCreateForm = this.createRoomCreateForm();
   }
 
-  createRoomForm(): FormGroup{ 
-    return this.roomForm = this.formBuilder.group({
+  createRoomCreateForm(): FormGroup{ 
+    return this.roomCreateForm = this.formBuilder.group({
       roomNumber: ['', Validators.required],
       roomSize: ['', Validators.required],
       minibar: [false]
     });
   }
 
-  onSubmit(roomNumber: number, roomSize: String, minibar:boolean){
-    console.log("SUBMITTING");
+  onSubmit(roomNumber: number, roomSize: RoomSize, minibar:boolean){
     const room: Room= {
       roomNumber: roomNumber,
-      size: roomSize as RoomSize,
-      minibar: minibar
+      size: roomSize,
+      minibar: minibar,
+      booked: false
     };
-    this.roomService.createNewRoom(room).subscribe(room => this.router.navigate([`rooms`]));
+    this.roomService.createNewRoom(room).subscribe(room => this.router.navigate([`room-list`]));
   }
 }
